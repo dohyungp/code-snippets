@@ -45,6 +45,14 @@ def send_error_to_slack(message, code):
 
 
 def main():
+    """Usage
+    $ chmod +x /var/www/cronjob_error_listener.py
+    $ crontab -e 
+
+    and then write on the configure file as following as:
+
+    * * * * *  /usr/bin/python3 some_a_python_script.py | tee -a some_a_log_file.log | /var/www/cronjob_error_listener.py
+    """
     lines, code = read_in()
 
     if lines is not None:
